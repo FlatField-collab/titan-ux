@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Titan AFO Dashboard design system — iOS + AT&T. All colors HSL. */
+
+@layer base {
+  :root {
+    /* iOS grouped backgrounds */
+    --background: 240 6% 96%;            /* #F2F2F6 page */
+    --foreground: 0 0% 0%;               /* label primary */
+
+    --card: 0 0% 100%;                   /* white card */
+    --card-foreground: 0 0% 0%;
+
+    --card-dark: 240 4% 11%;             /* #1C1C1E */
+    --card-dark-foreground: 0 0% 100%;
+
+    --card-indigo-from: 240 47% 41%;     /* #3B3B98 */
+    --card-indigo-to: 240 46% 33%;       /* #2D2D7A */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* AT&T blue */
+    --primary: 196 100% 44%;             /* #00A8E0 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 6% 90%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 240 6% 92%;
+    --muted-foreground: 240 3% 45%;      /* label secondary ~rgba(60,60,67,.6) */
+
+    --accent: 196 100% 94%;              /* light blue chip bg */
+    --accent-foreground: 196 100% 30%;
+
+    --destructive: 4 100% 59%;           /* #FF3B30 */
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;              /* #34C759 */
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 100% 50%;              /* #FF9500 */
+    --warning-foreground: 0 0% 100%;
+
+    --border: 240 6% 88%;
+    --input: 240 6% 88%;
+    --ring: 196 100% 44%;
+
+    --separator: 240 6% 85%;
+
+    --radius: 1.375rem;                  /* 22px card */
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 196 100% 44%;
+
+    --ios-nav: 30 20% 98%;
+    --ios-separator: 30 5% 88%;
+    --ios-group-bg: 0 0% 100%;
+    --ios-tint: 25 95% 53%;
+  }
+
+
+  .dark {
+    --background: 240 4% 11%;
+    --foreground: 0 0% 100%;
+    --card: 240 4% 14%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 4% 14%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 196 100% 44%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 20%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 4% 20%;
+    --muted-foreground: 240 3% 65%;
+    --accent: 240 4% 20%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 4 100% 59%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 4% 22%;
+    --input: 240 4% 22%;
+    --ring: 196 100% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body, #root {
+    @apply bg-[#0a0a0c];
+  }
+  body {
+    @apply text-foreground antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Hide scrollbars inside the phone frame for a cleaner mockup */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Brief tap feedback applied by the navigation guard when a participant
+   taps an interactive element whose destination is not yet built. The
+   element stays in place but visually acknowledges the tap. */
+@keyframes uxTapFlash {
+  0%   { opacity: 1;    transform: scale(1); }
+  40%  { opacity: 0.55; transform: scale(0.97); }
+  100% { opacity: 1;    transform: scale(1); }
+}
+.ux-tap-flash { animation: uxTapFlash 180ms ease-out; }
+
+
+/* Smooth, momentum-based touch scrolling for horizontal carousels */
+[class*="overflow-x-auto"],
+[class*="overflow-x-scroll"] {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+}
+
+@layer utilities {
+  .ios-card {
+    background-color: hsl(var(--ios-group-bg));
+    border-radius: 24px;
+    box-shadow: 0 1px 2px hsl(0 0% 0% / 0.04), 0 4px 12px hsl(0 0% 0% / 0.06);
+  }
+  .ios-section-header {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted-foreground px-4 pb-1;
+  }
+}
+
+
+
+/* Center the mobile prototype frame within any browser window size.
+   Targets the existing page wrappers (min-h-screen + flex justify-center)
+   without altering individual screens. */
+@layer utilities {
+  .min-h-screen.flex.justify-center {
+    align-items: center;
+  }
+}

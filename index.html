@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wgoros0y0e");
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Titan User Testing</title>
+    <meta name="description" content="This app provides a detailed view of documentation, competencies, and team performance.">
+    <meta name="author" content="Lovable" />
+
+    <!-- TODO: Update og:title to match your application name -->
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6d55a174-4f9e-4158-89b9-df143558197c/id-preview-e609cc25--57491a3b-4217-49dc-b636-f35476f4586c.lovable.app-1776799157826.png">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6d55a174-4f9e-4158-89b9-df143558197c/id-preview-e609cc25--57491a3b-4217-49dc-b636-f35476f4586c.lovable.app-1776799157826.png">
+    
+  
+  
+  
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:title" content="Titan User Testing">
+  <meta name="twitter:title" content="Titan User Testing">
+  <meta property="og:description" content="This app provides a detailed view of documentation, competencies, and team performance.">
+  <meta name="twitter:description" content="This app provides a detailed view of documentation, competencies, and team performance.">
+</head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
